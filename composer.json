@@ -1,10 +1,10 @@
 {
-    "name": "fervo/release-phase-migration-bundle",
+    "name": "fervo/release-phase-migrations-bundle",
     "description": "A bundle to run release-phase migrations on Heroku",
     "license": "MIT",
     "type": "symfony-bundle",
     "autoload": {
-        "psr-4": { "Fervo\\ReleasePhaseMigrationBundle\\": ""}
+        "psr-4": { "Fervo\\ReleasePhaseMigrationsBundle\\": ""}
     },
     "require": {
         "php": "~5.3|~7.0",

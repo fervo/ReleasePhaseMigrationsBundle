@@ -1,9 +1,9 @@
 <?php
 
-namespace Fervo\ReleasePhaseMigrationBundle;
+namespace Fervo\ReleasePhaseMigrationsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class FervoReleasePhaseMigrationBundle extends Bundle
+class FervoReleasePhaseMigrationsBundle extends Bundle
 {
 }
