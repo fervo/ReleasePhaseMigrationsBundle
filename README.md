@@ -2,7 +2,7 @@
 
 ## Bundle installation
 
-Install as per usual. The bundle requires DoctrineMigrationBundle. Right now both this bundle and the advisory-locker library it uses are pre-release, and thus requires adding @dev in the composer.json. Once we've used this internally for a while, we'll make a proper release and make these instructions more suited to the general public.
+Install as per usual. The bundle requires DoctrineMigrationBundle. Because this bundle is still being tried out by us internally, we're reluctant to release better instructions on how to use it. While both the library and the bundle is released as 1.0.0, this is mainly because we want to be able to strictly version it using semver. Once we've used this in production for a while, we'll go ahead and update these instructions.
 
 ## Why use this instead of just using Doctrine Migrations
 
