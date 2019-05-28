@@ -10,7 +10,7 @@ use Fervo\AdvisoryLocker\AdvisoryLockerFactory;
 
 class MigrateCommand extends MigrationsMigrateDoctrineCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         parent::configure();
 
@@ -19,7 +19,7 @@ class MigrateCommand extends MigrationsMigrateDoctrineCommand
         ;
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    public function execute(InputInterface $input, OutputInterface $output): ?int
     {
         // EM and DB options cannot be set at same time
         if (null !== $input->getOption('em') && null !== $input->getOption('db')) {
@@ -33,8 +33,12 @@ class MigrateCommand extends MigrationsMigrateDoctrineCommand
 
         $lockName = $conn->getDatabase().'.migrations';
 
-        $locker->performSpinlocked($lockName, function() use ($input, $output) {
-            parent::execute($input, $output);
+        $status = null;
+
+        $locker->performSpinlocked($lockName, function() use ($input, $output, &$status) {
+            $status = parent::execute($input, $output);
         }, 1000, 30);
+
+        return $status;
     }
 }
