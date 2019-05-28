@@ -33,8 +33,12 @@ class MigrateCommand extends MigrationsMigrateDoctrineCommand
 
         $lockName = $conn->getDatabase().'.migrations';
 
-        $locker->performSpinlocked($lockName, function() use ($input, $output) {
-            parent::execute($input, $output);
+        $status = null;
+
+        $locker->performSpinlocked($lockName, function() use ($input, $output, &$status) {
+            $status = parent::execute($input, $output);
         }, 1000, 30);
+
+        return $status;
     }
 }
