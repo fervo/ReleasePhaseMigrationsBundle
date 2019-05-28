@@ -16,7 +16,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-migrations2": "1.1.x-dev"
+            "dev-master": "1.1.x-dev"
         }
     }
 }
